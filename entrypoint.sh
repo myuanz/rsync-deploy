@@ -2,9 +2,8 @@
 set -eu
 
 SSHPATH="$HOME/.ssh"
-if [ ! -d "$SSHPATH"]; then 
-	mkdir -p "$SSHPATH"
-fi
+rm -rf "$SSHPATH"
+mkdir -p "$SSHPATH"
 echo "$DEPLOY_KEY" > "$SSHPATH/key"
 chmod 600 "$SSHPATH/key"
 SERVER_DEPLOY_STRING="$USERNAME@$SERVER_IP:$SERVER_DESTINATION"
